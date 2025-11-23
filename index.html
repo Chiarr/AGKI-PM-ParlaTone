@@ -24,20 +24,64 @@ Bisherige Arbeiten, etwa die Studie von Dienerowitz (2025), haben den Diskurs zu
       </p>
     </section>
     <section id="daten">
-      <h2>Datenbasis</h2>
-      <!-- Text aus Abschnitt 2.3 -->
+      <h2>Datenbeschreibung</h2>
+    
+      <p>Quelle: Plenarprotokolle des Deutschen Bundestages (Digitales Parlamentsinformationssystem, DPI)
+- Zeitraum: ca. 2014–2024
+- Format: TEI/XML mit Metadaten (u.a. Partei, Redner*in, Datum, Protokollnummer)
+- Umfang: geschätzt 40–50 Protokolle, in denen §218 bzw. eng verwandte Debatten vorkommen
+- Die Protokolle liegen in einer TEI-Struktur vor, die Redebeiträge, Zwischenrufe und formale Elemente (z.B. Sitzungsleitung) unterscheidet. Für ParlaTONE extrahiere ich gezielt jene Redeabschnitte, in denen §218 (und thematisch eng verbundene Begriffe) vorkommt.</p>
+<h3>Geplante Aufbereitungsschritte</h3>
+- Filtern der relevanten Debatten durch Schlagwortsuche und Metadaten
+- Extraktion der Redebeiträge einzelner Sprecher*innen
+- Preprocessing (z.B. Tokenisierung, Klein-/Großschreibung, Entfernen von Stopwords je nach Modell)
+- Anreicherung mit Metadaten (Partei, Geschlecht der Redner*innen, Legislaturperiode)
+- Speicherung der aufbereiteten Daten in Formaten wie CSV und/oder JSON für weitere Analyse-Pipelines
     </section>
     <section id="methodik">
       <h2>Methodischer Ansatz</h2>
-      <!-- Text aus Abschnitt 2.4 -->
+      <h3>Themen- und Tonanalyse mit BERTopic</h3>
+<p>Für die inhaltliche Strukturierung setze ich auf das Topic-Modelling-Framework BERTopic. Die Idee:
+- Zunächst werden Redebeiträge mit Hilfe von Sprachmodellen in Vektoren (Embeddings) überführt, die semantische Ähnlichkeiten abbilden.
+- Anschließend reduziere ich die Dimension dieser Vektoren mit UMAP, um sie in einem niedrigdimensionalen Raum darstellbar zu machen.
+- Darauf aufbauend identifiziert HDBSCAN Cluster von ähnlichen Beiträgen – also Themen und Argumentationsmuster.
+So lassen sich z.B. Themencluster wie „medizinische Indikationen“, „reproduktive Selbstbestimmung“ oder „Schutz des ungeborenen Lebens“ sichtbar machen. Ergänzend plane ich, Sentiment-Informationen und Indikatoren für moralische Aufladung in die Interpretation der Cluster einfließen zu lassen.</p>
     </section>
     <section id="fokus">
       <h2>Vertiefender Fokus: Prompt Engineering</h2>
-      <!-- Text aus Abschnitt 2.5 -->
+      <h3>1. Relevante Debatten und Passagen identifizieren</h3>
+      <p>§218 wird in den Protokollen nicht immer einheitlich und eindeutig referenziert. Es können unterschiedliche Schreibweisen, Verweise auf verwandte Paragraphen (z.B. §219a) oder Umschreibungen („Schwangerschaftsabbruch“, „reproduktive Selbstbestimmung“) vorkommen. Gleichzeitig taucht „§218“ auch in Kontexten auf, die für mein Erkenntnisinteresse weniger relevant sind (z.B. rein formale oder juristische Aufzählungen).</p>
+      <h3>Lösungsansatz:</h3>
+      <p>
+      - Es gibt eine API und sogar einen Python-Wrapper. ABER: Offenbar kann man per API nicht direkt im Volltext suchen und nach Begriffen filtern, wie den §218.
+      - Also habe ich mir die Erweiterte Suche etwas angesehen. Da kann man schön im Volltext suchen. Ich habe das mal im Zeitraum 1990-2025 gemacht. Indem ich dann die GET-Suchparameter etwas verändert habe, wird mir das alles auf einer Seite aufgezeigt (rows=xx) und alles in einer .txt gespeichert.
+      - Mit den Protokollnummern kann man mit RegEx ein paar Links zu den XMLs umformen, jetzt hier: https://dserver.bundestag.de/btp/19/19168.xml 
+      </p>
     </section>
     <section id="projektplan">
-      <h2>Mini-Projektplan</h2>
-      <!-- Text aus Abschnitt 2.6 -->
+      <h2>Mini-Projektplan und Meilensteine</h2>
+      <h3>Datenakquise & -auswahl</h3>
+- Relevante Plenarprotokolle identifizieren und herunterladen
+- Redebeiträge zu §218 extrahieren
+- Datenaufbereitung</h3>
+- TEI/XML parsen, Redebeiträge strukturieren
+- Metadaten (Partei, Geschlecht, Datum) konsolidieren
+- Vorbereitung für BERTopic (Textfelder, IDs, ggf. Lemmatization)
+- BERTopic mit Basisparametern testen
+- Themencluster überprüfen, Anzahl und Kohärenz einschätzen
+- Erste Visualisierungen (z.B. interaktive Topic-Visualisierung, Zeitverläufe)
+
+<h3>Technologie-Stack</h3>
+- Programmiersprache: Python
+- Umgebung: VSCode
+- NLP & Topic Modelling: BERTopic, UMAP, HDBSCAN, Sentence-Transformers
+- Versionierung & Publikation: Git, GitHub, GitHub Pages
+- Zielperspektive: Digitale Edition auf GAMS (inkl. Zeitstrahl & Visualisierungen)
+
+<h3>Erwartete Herausforderungen</h3>
+- Datenqualität & Selektion: Nicht alle Stellen, in denen §218 erwähnt wird, sind gleich relevant; es braucht sinnvolle Filter.
+- Interpretation von Tonalität: Sentiment-Modelle für politische Debatten im Deutschen sind begrenzt; viel wird auf interpretativer Ebene passieren.
+- Bias in LLMs: LLMs können dominante Diskurse reproduzieren und marginalisierte Perspektiven unsichtbar machen – ein reflektierter Einsatz ist daher zentral.
     </section>
   </main>
   <footer class="site-footer">
