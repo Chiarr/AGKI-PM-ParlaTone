@@ -3,91 +3,274 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>ParlaTONE – Forschungsblog</title>
+  <title>ParlaTONE – Forschungsblog zu §218</title>
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
   <header class="site-header">
     <div class="container">
       <h1>ParlaTONE</h1>
-      <p class="subtitle">Sprachwandel im deutschen Bundestag zu §218</p>
+      <p class="subtitle">Sprachwandel im Deutschen Bundestag zum §218 StGB</p>
     </div>
   </header>
   <main class="container">
+    <section id="hinweis-llm">
+      <h2>Hinweis: Zusammenarbeit mit einem LLM</h2>
+      <p>
+        Dieser Forschungsblog wurde in Zusammenarbeit mit einem
+        <span class="glossary-term"
+              data-definition="Ein Large Language Model (LLM) ist ein großes KI-Sprachmodell, das auf umfangreichen Textkorpora trainiert wurde und Texte verstehen und generieren kann.">
+          Large Language Model (LLM)
+        </span>
+        erstellt. Alle Inhalte werden von mir als Projektverantwortliche*r überprüft,
+        überarbeitet und – wo nötig – korrigiert oder ergänzt
+        (<em>Expert in the Loop</em>). Unsichere Punkte werden im Projektverlauf explizit
+        als offene Frage formuliert und später gemeinsam im Kurs diskutiert.
+      </p>
+    </section>
     <section id="projektuebersicht">
       <h2>Projektübersicht</h2>
-      <p> Forschungsfrage und Kontext </p>
-<p>>Die zentrale Forschungsfrage lautet:
-Wie hat sich der Ton im bundesdeutschen Parlamentsdiskurs zu §218 zwischen 2014 und 2024 verändert – und wie unterscheiden sich Tonalität und Argumentationsmuster zwischen Parteien und Geschlechtern der Redner*innen?
-§218 StGB reguliert Schwangerschaftsabbrüche und ist seit Jahrzehnten Gegenstand intensiver politischer und gesellschaftlicher Auseinandersetzungen. In den letzten Jahren haben feministische Bewegungen, medizinische Fachverbände und kirchliche Akteure den Diskurs geprägt. Auch rechtliche Reformen – etwa rund um §219a StGB – haben zu neuen Debatten im Bundestag geführt.
-Bisherige Arbeiten, etwa die Studie von Dienerowitz (2025), haben den Diskurs zu §218 qualitativ untersucht, aber eine systematische, datengetriebene Analyse der Bundestagsprotokolle fehlt bislang. ParlaTONE setzt hier an und kombiniert digitale Methoden mit einer kritischen Perspektive auf Sprache, Macht und Normativität.
+      <p>
+        <strong>Projektname:</strong> ParlaTONE – Sprachwandel im Deutschen Bundestag zu §218 StGB.
+      </p>
+      <p>
+        <strong>Übergeordnete Idee:</strong> In ParlaTONE untersuche ich den politischen Diskurs rund um
+        den Abtreibungsparagraphen §218 StGB im Deutschen Bundestag. Im Zentrum steht die Frage,
+        wie sich der <strong>Ton</strong> der Debatten über mehrere Jahre verändert und wie sich
+        unterschiedliche Parteien und Geschlechter der Redner*innen sprachlich positionieren.
+      </p>
+      <p>
+        <strong>Forschungsfrage (Arbeitsfassung):</strong><br />
+        Wie hat sich der Ton im Parlamentsdiskurs zu §218 im Laufe der letzten Jahre verändert, und
+        welche Unterschiede zeigen sich zwischen Parteien und Geschlechtern der Redner*innen?
+      </p>
+      <p>
+        <strong>Kontext:</strong> §218 ist seit Jahrzehnten gesellschaftlich umkämpft. Debatten um
+        reproduktive Rechte, medizinische Versorgung und religiöse bzw. moralische Positionen prägen
+        den Diskurs. Die Plenarprotokolle des Bundestags bieten eine reich strukturierte, offizielle
+        Quelle, um diese Auseinandersetzungen in ihrer sprachlichen Form zu analysieren.
       </p>
     </section>
     <section id="daten">
-      <h2>Datenbeschreibung</h2>
-    
-      <p>Quelle: Plenarprotokolle des Deutschen Bundestages (Digitales Parlamentsinformationssystem, DPI)
-- Zeitraum: ca. 2014–2024
-- Format: TEI/XML mit Metadaten (u.a. Partei, Redner*in, Datum, Protokollnummer)
-- Umfang: geschätzt 40–50 Protokolle, in denen §218 bzw. eng verwandte Debatten vorkommen
-- Die Protokolle liegen in einer TEI-Struktur vor, die Redebeiträge, Zwischenrufe und formale Elemente (z.B. Sitzungsleitung) unterscheidet. Für ParlaTONE extrahiere ich gezielt jene Redeabschnitte, in denen §218 (und thematisch eng verbundene Begriffe) vorkommt.</p>
-<h3>Geplante Aufbereitungsschritte</h3>
-- Filtern der relevanten Debatten durch Schlagwortsuche und Metadaten
-- Extraktion der Redebeiträge einzelner Sprecher*innen
-- Preprocessing (z.B. Tokenisierung, Klein-/Großschreibung, Entfernen von Stopwords je nach Modell)
-- Anreicherung mit Metadaten (Partei, Geschlecht der Redner*innen, Legislaturperiode)
-- Speicherung der aufbereiteten Daten in Formaten wie CSV und/oder JSON für weitere Analyse-Pipelines
+      <h2>Datenbasis</h2>
+      <p>
+        <strong>Quelle:</strong> Plenarprotokolle des Deutschen Bundestages, die über das
+        Open-Data-Angebot des Bundestags bzw. verwandte Korpora als XML/TEI und weitere Formate
+        zur Verfügung stehen.
+      </p>
+      <p>
+        <strong>Geplanter Korpus:</strong> Sitzungen, in denen §218 (und eng verwandte Themen wie
+        Schwangerschaftsabbruch, reproduktive Selbstbestimmung, §219a) explizit diskutiert werden.
+        Der genaue Zeitraum wird im Projektverlauf präzise definiert und dokumentiert (Arbeitsannahme:
+        Debatten aus den 2010er und frühen 2020er Jahren).
+      </p>
+      <p>
+        <strong>Struktur:</strong> Die Protokolle liegen in einem XML/TEI-Format vor, das
+        Redebeiträge, Zwischenrufe, formale Elemente (z.&nbsp;B. Sitzungsleitung) und Metadaten
+        (u.&nbsp;a. Datum, Fraktion, Name der Redner*innen) unterscheidet. Für ParlaTONE werden diese
+        Daten zunächst in eine tabellarische Struktur überführt (z.&nbsp;B. eine Zeile pro Redebeitrag).
+      </p>
+      <p>
+        <strong>Beispielhafter Datensatz (Zielzustand):</strong>
+      </p>
+      <ul>
+        <li>Spalten: <code>speech_id</code>, <code>speaker_name</code>, <code>party</code>, <code>gender</code>,
+            <code>date</code>, <code>session_id</code>, <code>text</code></li>
+        <li>Filter: Nur Redebeiträge, in denen §218 bzw. eng verwandte Begriffe vorkommen</li>
+        <li>Metadaten-Erweiterung: Parteien und – wo möglich – Geschlechtszuordnung der Redner*innen</li>
+      </ul>
+      <p>
+        <em>Offene Frage:</em> Welche zusätzlichen Metadaten (z.&nbsp;B. Berufsgruppen, Ausschusszugehörigkeit)
+        sind für die Analyse wirklich relevant und realistisch zu erheben?
+      </p>
     </section>
     <section id="methodik">
       <h2>Methodischer Ansatz</h2>
-      <h3>Themen- und Tonanalyse mit BERTopic</h3>
-<p>Für die inhaltliche Strukturierung setze ich auf das Topic-Modelling-Framework BERTopic. Die Idee:
-- Zunächst werden Redebeiträge mit Hilfe von Sprachmodellen in Vektoren (Embeddings) überführt, die semantische Ähnlichkeiten abbilden.
-- Anschließend reduziere ich die Dimension dieser Vektoren mit UMAP, um sie in einem niedrigdimensionalen Raum darstellbar zu machen.
-- Darauf aufbauend identifiziert HDBSCAN Cluster von ähnlichen Beiträgen – also Themen und Argumentationsmuster.
-So lassen sich z.B. Themencluster wie „medizinische Indikationen“, „reproduktive Selbstbestimmung“ oder „Schutz des ungeborenen Lebens“ sichtbar machen. Ergänzend plane ich, Sentiment-Informationen und Indikatoren für moralische Aufladung in die Interpretation der Cluster einfließen zu lassen.</p>
+      <p>
+        In einem ersten Schritt werden die bereinigten Redebeiträge mit Hilfe von
+        <span class="glossary-term"
+              data-definition="Topic Modelling ist ein Verfahren, mit dem aus großen Textsammlungen automatisch Themen (Topics) identifiziert werden, indem typische Wortmuster und Kookurrenzen analysiert werden.">
+          Topic Modelling
+        </span>
+        untersucht. Dafür nutze ich das Framework <strong>BERTopic</strong>, das auf Transformer-basierten
+        Sprachmodellen und einer anschließenden Clustering-Pipeline aufbaut.
+      </p>
+      <p>
+        BERTopic nutzt u.&nbsp;a.
+        <span class="glossary-term"
+              data-definition="Embeddings sind numerische Vektorrepräsentationen von Wörtern oder Texten. Ähnliche Texte liegen in diesem Vektorraum näher beieinander als unähnliche.">
+          Text-Embeddings
+        </span>,
+        um die Redebeiträge als Punkte in einem hochdimensionalen Raum zu repräsentieren. Anschließend
+        wird mit
+        <span class="glossary-term"
+              data-definition="UMAP (Uniform Manifold Approximation and Projection) ist ein Verfahren zur Dimensionsreduktion, das hochdimensionale Daten in eine niedrigdimensionale Darstellung (z.B. 2D) überführt, wobei die Struktur der Daten möglichst gut erhalten bleibt.">
+          UMAP
+        </span>
+        eine Dimensionsreduktion durchgeführt, bevor ein Dichte-basiertes
+        Clustering-Verfahren wie
+        <span class="glossary-term"
+              data-definition="HDBSCAN ist ein hierarchisches, dichtebasiertes Clustering-Verfahren, das Cluster unterschiedlicher Dichte identifizieren kann und robust gegenüber Rauschen ist.">
+          HDBSCAN
+        </span>
+        thematische Cluster identifiziert.
+      </p>
+      <p>
+        Diese Pipeline erlaubt es, Themenbereiche und wiederkehrende Argumentationsmuster im Diskurs
+        zu §218 sichtbar zu machen. Ergänzend plane ich eine (vorsichtige) Tonalitätsanalyse:
+        Hier interessiert insbesondere, ob Beiträge eher konfrontativ oder konsensorientiert,
+        moralisch aufgeladen oder pragmatisch-verwaltungsbezogen formuliert sind.
+      </p>
+      <p>
+        <em>Offene Frage:</em> Welche Skala (z.&nbsp;B. „konfrontativ ↔ konsensorientiert“) ist für die
+        Annotation von Tonalität sinnvoll und ausreichend trennscharf?
+      </p>
     </section>
     <section id="fokus">
-      <h2>Vertiefender Fokus: Prompt Engineering</h2>
+      <h2>Vertiefender Fokus: Datenaufbereitung – Herausforderungen und Lösungsansätze</h2>
       <h3>1. Relevante Debatten und Passagen identifizieren</h3>
-      <p>§218 wird in den Protokollen nicht immer einheitlich und eindeutig referenziert. Es können unterschiedliche Schreibweisen, Verweise auf verwandte Paragraphen (z.B. §219a) oder Umschreibungen („Schwangerschaftsabbruch“, „reproduktive Selbstbestimmung“) vorkommen. Gleichzeitig taucht „§218“ auch in Kontexten auf, die für mein Erkenntnisinteresse weniger relevant sind (z.B. rein formale oder juristische Aufzählungen).</p>
-      <h3>Lösungsansatz:</h3>
       <p>
-      - Es gibt eine API und sogar einen Python-Wrapper. ABER: Offenbar kann man per API nicht direkt im Volltext suchen und nach Begriffen filtern, wie den §218.
-      - Also habe ich mir die Erweiterte Suche etwas angesehen. Da kann man schön im Volltext suchen. Ich habe das mal im Zeitraum 1990-2025 gemacht. Indem ich dann die GET-Suchparameter etwas verändert habe, wird mir das alles auf einer Seite aufgezeigt (rows=xx) und alles in einer .txt gespeichert.
-      - Mit den Protokollnummern kann man mit RegEx ein paar Links zu den XMLs umformen, jetzt hier: https://dserver.bundestag.de/btp/19/19168.xml 
+        §218 wird nicht immer exakt gleich zitiert. Neben expliziten Paragraphenverweisen
+        („§218“, „§219a“) tauchen Begriffe wie „Schwangerschaftsabbruch“ oder „reproduktive
+        Selbstbestimmung“ auf. Gleichzeitig gibt es rein formale oder technische Erwähnungen,
+        die für die konkrete Forschungsfrage weniger relevant sind.
+      </p>
+      <p>
+        Ich kombiniere deshalb eine Schlagwortsuche mit Kontextfiltern (z.&nbsp;B. Mindestlänge eines
+        Redeabschnitts, mehrfaches Auftreten relevanter Begriffe) und nutze die TEI-Struktur, um
+        gezielt Redebeiträge von Abgeordneten zu extrahieren. Stichprobenkontrollen helfen dabei,
+        Suchmuster zu schärfen und sowohl Über- als auch Unterinklusion zu reduzieren.
+      </p>
+      <h3>2. Strukturierung der Redebeiträge und Metadaten</h3>
+      <p>
+        Für die spätere Analyse müssen die Daten in eine verlässliche Tabellenform gebracht werden.
+        Dazu parse ich die XML/TEI-Dateien mit Python, extrahiere einzelne Redebeiträge und verknüpfe
+        sie mit Metadaten wie Datum, Partei und – wenn verfügbar – Geschlecht der Redner*innen.
+      </p>
+      <p>
+        Uneinheitliche Metadaten (z.&nbsp;B. unterschiedliche Schreibweisen von Parteinamen) werden
+        normalisiert. Wo Informationen fehlen, dokumentiere ich diese Lücken transparent, statt
+        sie stillschweigend zu füllen.
+      </p>
+      <h3>3. Textvorverarbeitung für Topic Modelling und Tonanalyse</h3>
+      <p>
+        Die Vorverarbeitung wird bewusst zurückhaltend gestaltet. Formelhafte Anreden und klar
+        redundante Elemente können entfernt werden, um die Modelle nicht zu „verrauschen“. Gleichzeitig
+        soll die stilistische und inhaltliche Vielfalt des Diskurses erhalten bleiben.
+      </p>
+      <p>
+        Für Embedding-basierte Methoden wie BERTopic reicht meist eine leichte Normalisierung
+        (z.&nbsp;B. Kleinschreibung, Bereinigung von Sonderzeichen). Stopword-Listen erweitere ich nur,
+        wenn klar ist, dass bestimmte Wörter keinen Beitrag zur inhaltlichen Unterscheidung leisten.
+      </p>
+      <h3>4. Zwischenrufe und Plenumsreaktionen</h3>
+      <p>
+        Zwischenrufe, Heiterkeit oder Beifall werden in den Protokollen gesondert markiert und sind
+        aus inhaltlicher Sicht ambivalent: Einerseits können sie auf Konfliktintensität oder
+        Polarisierung hinweisen, andererseits erschweren sie die automatische Auswertung.
+      </p>
+      <p>
+        Ich trenne diese Elemente technisch von den Hauptreden, lösche sie aber nicht vollständig.
+        Stattdessen werden sie als zusätzliche Marker gespeichert, sodass ich Analysen mit und ohne
+        diese Informationen vergleichen kann.
+      </p>
+      <h3>5. LLMs als Hilfswerkzeug in der Datenaufbereitung</h3>
+      <p>
+        LLMs können in der Datenaufbereitung unterstützen, etwa beim Vorschlagen von formelhaften
+        Phrasen oder beim groben Vorsortieren von Abschnitten in „inhaltlich relevant“ vs.
+        „formal/administrativ“. Alle Vorschläge werden jedoch manuell geprüft und in einem
+        Prompt-Engineering-Journal dokumentiert.
+      </p>
+      <h3>6. Transparenz und Reproduzierbarkeit</h3>
+      <p>
+        Alle Skripte und Aufbereitungsschritte werden mit Git versioniert. Das Repository folgt einer
+        klaren Struktur (z.&nbsp;B. <code>raw/</code>, <code>processed/</code>, <code>notebooks/</code>, <code>docs/</code>), und in
+        zusätzlichen Markdown-Dokumenten (z.&nbsp;B. <code>DATA.md</code>, <code>METHOD.md</code>, <code>GLOSSAR.md</code>)
+        werden Entscheidungen und offene Fragen nachvollziehbar festgehalten.
       </p>
     </section>
     <section id="projektplan">
-      <h2>Mini-Projektplan und Meilensteine</h2>
-      <h3>Datenakquise & -auswahl</h3>
-- Relevante Plenarprotokolle identifizieren und herunterladen
-- Redebeiträge zu §218 extrahieren
-- Datenaufbereitung</h3>
-- TEI/XML parsen, Redebeiträge strukturieren
-- Metadaten (Partei, Geschlecht, Datum) konsolidieren
-- Vorbereitung für BERTopic (Textfelder, IDs, ggf. Lemmatization)
-- BERTopic mit Basisparametern testen
-- Themencluster überprüfen, Anzahl und Kohärenz einschätzen
-- Erste Visualisierungen (z.B. interaktive Topic-Visualisierung, Zeitverläufe)
-
-<h3>Technologie-Stack</h3>
-- Programmiersprache: Python
-- Umgebung: VSCode
-- NLP & Topic Modelling: BERTopic, UMAP, HDBSCAN, Sentence-Transformers
-- Versionierung & Publikation: Git, GitHub, GitHub Pages
-- Zielperspektive: Digitale Edition auf GAMS (inkl. Zeitstrahl & Visualisierungen)
-
-<h3>Erwartete Herausforderungen</h3>
-- Datenqualität & Selektion: Nicht alle Stellen, in denen §218 erwähnt wird, sind gleich relevant; es braucht sinnvolle Filter.
-- Interpretation von Tonalität: Sentiment-Modelle für politische Debatten im Deutschen sind begrenzt; viel wird auf interpretativer Ebene passieren.
-- Bias in LLMs: LLMs können dominante Diskurse reproduzieren und marginalisierte Perspektiven unsichtbar machen – ein reflektierter Einsatz ist daher zentral.
+      <h2>Mini-Projektplan</h2>
+      <h3>Meilensteine</h3>
+      <ol>
+        <li>Datenakquise und Auswahl relevanter Plenarprotokolle zu §218</li>
+        <li>Parsing der XML/TEI-Dateien und Aufbau eines analysierbaren Korpus</li>
+        <li>Erste BERTopic-Modelle und Visualisierungen der Themenstruktur</li>
+        <li>Vertiefende Analysen zur Tonalität und partei-/geschlechtsspezifischen Mustern</li>
+        <li>Aufbereitung der Ergebnisse für Blog, Präsentation und spätere digitale Edition</li>
+      </ol>
+      <h3>Technologie-Stack</h3>
+      <ul>
+        <li>Python (Datenaufbereitung, Analyse)</li>
+        <li>BERTopic, UMAP, HDBSCAN, Embedding-Modelle (NLP & Topic Modelling)</li>
+        <li>Git &amp; GitHub (Versionierung), GitHub Pages (Publikation des Blogs)</li>
+        <li>VSCode &amp; Jupyter-Notebooks als Arbeitsumgebung</li>
+      </ul>
+      <h3>Erwartete Herausforderungen</h3>
+      <ul>
+        <li>Saubere Trennung relevanter von irrelevanten Passagen in den Protokollen</li>
+        <li>Interpretation von Tonalität in komplexen politischen Reden</li>
+        <li>Reflektierter Einsatz von LLMs ohne unkritische Übernahme ihrer Vorschläge</li>
+      </ul>
+    </section>
+    <section id="dokumentation">
+      <h2>Dokumentation & nächste Schritte</h2>
+      <p>
+        Für Assignment 2 werden ergänzende Markdown-Dokumente vorbereitet, die parallel zum Blog
+        gepflegt werden:
+      </p>
+      <ul>
+        <li><code>GLOSSAR.md</code> – zentraler Begriffskatalog (erweitert im Vergleich zu den Tooltipps hier)</li>
+        <li><code>DATA.md</code> – detaillierte Beschreibung des Datensatzes und der Aufbereitungsschritte</li>
+        <li><code>METHOD.md</code> – technische Details zu BERTopic, UMAP, HDBSCAN und LLM-Einsatz</li>
+      </ul>
+      <p>
+        Diese Dokumente entstehen ebenfalls in Zusammenarbeit mit einem LLM, werden aber von mir
+        kontrolliert, kommentiert und bei Unsicherheit in Form offener Fragen formuliert.
+      </p>
+    </section>
+    <section id="quellen">
+      <h2>Quellen &amp; weiterführende Links</h2>
+      <ul>
+        <li>
+          Deutscher Bundestag, Open Data: Plenarprotokolle und Drucksachen –
+          <a href="https://www.bundestag.de/services/opendata" target="_blank" rel="noopener">
+            https://www.bundestag.de/services/opendata
+          </a>
+        </li>
+        <li>
+          Übersicht Plenarprotokolle –
+          <a href="https://www.bundestag.de/dokumente/protokolle/plenarprotokolle"
+             target="_blank" rel="noopener">
+            https://www.bundestag.de/dokumente/protokolle/plenarprotokolle
+          </a>
+        </li>
+        <li>
+          BERTopic – Dokumentation und Projektseite –
+          <a href="https://bertopic.com/" target="_blank" rel="noopener">
+            https://bertopic.com/
+          </a>
+        </li>
+        <li>
+          UMAP – Dimension Reduction –
+          <a href="https://umap-learn.readthedocs.io/" target="_blank" rel="noopener">
+            https://umap-learn.readthedocs.io/
+          </a>
+        </li>
+        <li>
+          HDBSCAN – Clustering-Bibliothek –
+          <a href="https://hdbscan.readthedocs.io/" target="_blank" rel="noopener">
+            https://hdbscan.readthedocs.io/
+          </a>
+        </li>
+      </ul>
     </section>
   </main>
   <footer class="site-footer">
     <div class="container">
       <p>Forschungsblog im Rahmen eines Uni-Projekts · ParlaTONE</p>
-      <p><a href="https://github.com/DEIN-USERNAME/DEIN-REPO" target="_blank">GitHub-Repository</a></p>
+      <p><a href="https://github.com/DEIN-USERNAME/DEIN-REPO" target="_blank" rel="noopener">
+        GitHub-Repository</a></p>
     </div>
   </footer>
 </body>
