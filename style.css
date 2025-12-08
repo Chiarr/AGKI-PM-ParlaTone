@@ -1,7 +1,7 @@
 * {
   box-sizing: border-box;
 }
-
+/* Sollte auch für Apple/Mac funktionieren, aber kann ich nicht testen, weil kein Apple/Mac*/
 body {
   margin: 0;
   font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
@@ -9,6 +9,7 @@ body {
   background: #f9fafb;
   color: #111827;
 }
+
 
 .container {
   max-width: 900px;
@@ -61,4 +62,58 @@ section {
   text-align: center;
   font-size: 0.875rem;
   color: #6b7280;
+}
+
+/* Glossar für Fachbegriffe */
+.glossary-term {
+  position: relative;
+  cursor: help;
+  border-bottom: 1px dotted #6b7280;
+}
+
+/* Der Glossar Tooltip */
+.glossary-term::after {
+  content: attr(data-definition);
+  position: absolute;
+  left: 0;
+  bottom: 120%;
+  z-index: 10;
+  display: none;
+  max-width: 260px;
+  padding: 0.5rem 0.75rem;
+  font-size: 0.8rem;
+  line-height: 1.4;
+  color: #111827;
+  background: #f9fafb;
+  border: 1px solid #e5e7eb;
+  border-radius: 0.5rem;
+  box-shadow: 0 4px 10px rgba(15, 23, 42, 0.15);
+}
+
+/* kleiner Pfeil nach unten */
+.glossary-term::before {
+  content: "";
+  position: absolute;
+  left: 10px;
+  bottom: 110%;
+  border-width: 6px;
+  border-style: solid;
+  border-color: #e5e7eb transparent transparent transparent;
+  display: none;
+}
+
+/* Glossar bei Hover */
+.glossary-term:hover::after,
+.glossary-term:focus::after,
+.glossary-term:hover::before,
+.glossary-term:focus::before {
+  display: block;
+}
+
+/* Für mini Screens, sozusagen */
+@media (max-width: 480px) {
+  .glossary-term::after {
+    max-width: 220px;
+    font-size: 0.75rem;
+  }
 }

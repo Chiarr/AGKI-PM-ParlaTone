@@ -3,13 +3,13 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>ParlaTONE – Forschungsblog zu §218</title>
+  <title>ParlaTone – Forschungsblog zu §218</title>
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
   <header class="site-header">
     <div class="container">
-      <h1>ParlaTONE</h1>
+      <h1>ParlaTone</h1>
       <p class="subtitle">Sprachwandel im Deutschen Bundestag zum §218 StGB</p>
     </div>
   </header>
@@ -22,22 +22,21 @@
               data-definition="Ein Large Language Model (LLM) ist ein großes KI-Sprachmodell, das auf umfangreichen Textkorpora trainiert wurde und Texte verstehen und generieren kann.">
           Large Language Model (LLM)
         </span>
-        erstellt. Alle Inhalte werden von mir als Projektverantwortliche*r überprüft,
-        überarbeitet und – wo nötig – korrigiert oder ergänzt
-        (<em>Expert in the Loop</em>). Unsichere Punkte werden im Projektverlauf explizit
-        als offene Frage formuliert und später gemeinsam im Kurs diskutiert.
+        erstellt. Alle Inhalte werden von mir als Projektverantwortliche überprüft,und falls nötig korrigiert oder
+        ergänzt (<em>Expert in the Loop</em>). Wenn etwas unklar ist, wird es im Verlauf des Projekts im Kurs angesprochen.
       </p>
     </section>
     <section id="projektuebersicht">
       <h2>Projektübersicht</h2>
       <p>
-        <strong>Projektname:</strong> ParlaTONE – Sprachwandel im Deutschen Bundestag zu §218 StGB.
+        <strong>Projektname:</strong> ParlaTone - Sprachwandel im Deutschen Bundestag zu §218 StGB.
       </p>
       <p>
-        <strong>Übergeordnete Idee:</strong> In ParlaTONE untersuche ich den politischen Diskurs rund um
-        den Abtreibungsparagraphen §218 StGB im Deutschen Bundestag. Im Zentrum steht die Frage,
-        wie sich der <strong>Ton</strong> der Debatten über mehrere Jahre verändert und wie sich
-        unterschiedliche Parteien und Geschlechter der Redner*innen sprachlich positionieren.
+        <strong>Übergeordnete Idee:</strong> In ParlaTone untersuche ich den politischen Diskurs im Deutschen Bundestag rund um
+        den Abtreibungsparagraphen §218 StGB. Dieser regelt den Umstand, dass Abtreibung in Deutschland offiziell ein Strafbestand ist, 
+        der jedoch nicht verfolgt oder bestraft wird, wenn die Abtreibung vor dem Ende des 3. Monats durchgeführt wird. 
+        Im Zentrum dieses Projekts steht die Frage, wie sich der <strong>Ton</strong> der Debatten über mehrere Jahre verändert hat und ob sich eine Tendenz innerhalb
+        unterschiedlicher Parteien sowie im Bezug auf Geschlechter der Redner*innen gesehen werden kann.
       </p>
       <p>
         <strong>Forschungsfrage (Arbeitsfassung):</strong><br />
@@ -45,8 +44,8 @@
         welche Unterschiede zeigen sich zwischen Parteien und Geschlechtern der Redner*innen?
       </p>
       <p>
-        <strong>Kontext:</strong> §218 ist seit Jahrzehnten gesellschaftlich umkämpft. Debatten um
-        reproduktive Rechte, medizinische Versorgung und religiöse bzw. moralische Positionen prägen
+        <strong>Kontext:</strong> §218 StGB ist seit Jahrzehnten gesellschaftspolitisch umkämpft (s. dazu <a href="https://doi.org/10.1007/s00103-024-03992-5">Dienerwitz, 2025</a>). 
+        Debatten um reproduktive Rechte, medizinische Versorgung, sowie religiöse bzw. moralische Positionen prägen
         den Diskurs. Die Plenarprotokolle des Bundestags bieten eine reich strukturierte, offizielle
         Quelle, um diese Auseinandersetzungen in ihrer sprachlichen Form zu analysieren.
       </p>
@@ -55,19 +54,21 @@
       <h2>Datenbasis</h2>
       <p>
         <strong>Quelle:</strong> Plenarprotokolle des Deutschen Bundestages, die über das
-        Open-Data-Angebot des Bundestags bzw. verwandte Korpora als XML/TEI und weitere Formate
-        zur Verfügung stehen.
+        Open-Data-Angebot des Bundestags als XML/TEI und weitere Formate zur Verfügung stehen.
       </p>
       <p>
         <strong>Geplanter Korpus:</strong> Sitzungen, in denen §218 (und eng verwandte Themen wie
-        Schwangerschaftsabbruch, reproduktive Selbstbestimmung, §219a) explizit diskutiert werden.
+        Schwangerschaftsabbruch, reproduktive Selbstbestimmung,  <span class="glossary-term"
+              data-definition="§219a StGB regelte das Werbeverbot für Abtreibungen. Seit seiner Aufhebung ist Werbung für Abtreibung nicht weiter verboten.">
+          §219a StGB
+        </span>) explizit diskutiert werden.
         Der genaue Zeitraum wird im Projektverlauf präzise definiert und dokumentiert (Arbeitsannahme:
-        Debatten aus den 2010er und frühen 2020er Jahren).
+        Debatten aus den 2000er bis frühen 2020er Jahren).
       </p>
       <p>
         <strong>Struktur:</strong> Die Protokolle liegen in einem XML/TEI-Format vor, das
         Redebeiträge, Zwischenrufe, formale Elemente (z.&nbsp;B. Sitzungsleitung) und Metadaten
-        (u.&nbsp;a. Datum, Fraktion, Name der Redner*innen) unterscheidet. Für ParlaTONE werden diese
+        (u.&nbsp;a. Datum, Fraktion, Name der Redner*innen) unterscheidet. Für ParlaTone werden diese
         Daten zunächst in eine tabellarische Struktur überführt (z.&nbsp;B. eine Zeile pro Redebeitrag).
       </p>
       <p>
@@ -77,7 +78,7 @@
         <li>Spalten: <code>speech_id</code>, <code>speaker_name</code>, <code>party</code>, <code>gender</code>,
             <code>date</code>, <code>session_id</code>, <code>text</code></li>
         <li>Filter: Nur Redebeiträge, in denen §218 bzw. eng verwandte Begriffe vorkommen</li>
-        <li>Metadaten-Erweiterung: Parteien und – wo möglich – Geschlechtszuordnung der Redner*innen</li>
+        <li>Metadaten-Erweiterung: Parteien und Geschlechtszuordnung der Redner*innen (falls möglich)</li>
       </ul>
       <p>
         <em>Offene Frage:</em> Welche zusätzlichen Metadaten (z.&nbsp;B. Berufsgruppen, Ausschusszugehörigkeit)
@@ -123,29 +124,30 @@
       </p>
       <p>
         <em>Offene Frage:</em> Welche Skala (z.&nbsp;B. „konfrontativ ↔ konsensorientiert“) ist für die
-        Annotation von Tonalität sinnvoll und ausreichend trennscharf?
+        Annotation von Tonalität sinnvoll und ausreichend trennscharf? Dies wird sich vsl. erst anhand erster Auswertungen sagen lassen.
       </p>
     </section>
     <section id="fokus">
-      <h2>Vertiefender Fokus: Datenaufbereitung – Herausforderungen und Lösungsansätze</h2>
+      <h2>Vertiefender Fokus: Datenaufbereitung, Herausforderungen und Lösungsansätze</h2>
       <h3>1. Relevante Debatten und Passagen identifizieren</h3>
       <p>
         §218 wird nicht immer exakt gleich zitiert. Neben expliziten Paragraphenverweisen
         („§218“, „§219a“) tauchen Begriffe wie „Schwangerschaftsabbruch“ oder „reproduktive
         Selbstbestimmung“ auf. Gleichzeitig gibt es rein formale oder technische Erwähnungen,
-        die für die konkrete Forschungsfrage weniger relevant sind.
+        die für die konkrete Forschungsfrage weniger relevant sind; bspw. kurze Erwähnungen im Rahmen anderer Debatten.
+        Diese werden wahrscheinlich weniger relevant sein, da sie nicht im Kontext ausgewertet werden können.
       </p>
       <p>
         Ich kombiniere deshalb eine Schlagwortsuche mit Kontextfiltern (z.&nbsp;B. Mindestlänge eines
         Redeabschnitts, mehrfaches Auftreten relevanter Begriffe) und nutze die TEI-Struktur, um
-        gezielt Redebeiträge von Abgeordneten zu extrahieren. Stichprobenkontrollen helfen dabei,
+        gezielt Redebeiträge von Abgeordneten zu extrahieren, und so z.B. Kommentare der Sitzungsleitung rauszufiltern. Stichprobenkontrollen helfen dabei,
         Suchmuster zu schärfen und sowohl Über- als auch Unterinklusion zu reduzieren.
       </p>
       <h3>2. Strukturierung der Redebeiträge und Metadaten</h3>
       <p>
         Für die spätere Analyse müssen die Daten in eine verlässliche Tabellenform gebracht werden.
         Dazu parse ich die XML/TEI-Dateien mit Python, extrahiere einzelne Redebeiträge und verknüpfe
-        sie mit Metadaten wie Datum, Partei und – wenn verfügbar – Geschlecht der Redner*innen.
+        sie mit Metadaten wie Datum, Partei und Geschlecht der Redner*innen.
       </p>
       <p>
         Uneinheitliche Metadaten (z.&nbsp;B. unterschiedliche Schreibweisen von Parteinamen) werden
@@ -155,28 +157,29 @@
       <h3>3. Textvorverarbeitung für Topic Modelling und Tonanalyse</h3>
       <p>
         Die Vorverarbeitung wird bewusst zurückhaltend gestaltet. Formelhafte Anreden und klar
-        redundante Elemente können entfernt werden, um die Modelle nicht zu „verrauschen“. Gleichzeitig
-        soll die stilistische und inhaltliche Vielfalt des Diskurses erhalten bleiben.
+        redundante Elemente (bspw.: "Sehr geehrte Kolleginnen und Kollegen", etc.) können entfernt werden, um die Modelle nicht mit inhaltslosem Rauschen zu fluten.
+        So soll die stilistische und inhaltliche Vielfalt des Diskurses erhalten bleiben.
       </p>
       <p>
         Für Embedding-basierte Methoden wie BERTopic reicht meist eine leichte Normalisierung
         (z.&nbsp;B. Kleinschreibung, Bereinigung von Sonderzeichen). Stopword-Listen erweitere ich nur,
-        wenn klar ist, dass bestimmte Wörter keinen Beitrag zur inhaltlichen Unterscheidung leisten.
+        wenn klar ist, dass bestimmte Wörter keinen Beitrag zur inhaltlichen Unterscheidung leisten, auch dies wird sich
+        vsl. erst im Lauf der Datenverarbeitung zeigen.
       </p>
       <h3>4. Zwischenrufe und Plenumsreaktionen</h3>
       <p>
-        Zwischenrufe, Heiterkeit oder Beifall werden in den Protokollen gesondert markiert und sind
+        Zwischenrufe, Beifall, etc. werden in den Protokollen gesondert markiert und sind
         aus inhaltlicher Sicht ambivalent: Einerseits können sie auf Konfliktintensität oder
         Polarisierung hinweisen, andererseits erschweren sie die automatische Auswertung.
       </p>
       <p>
         Ich trenne diese Elemente technisch von den Hauptreden, lösche sie aber nicht vollständig.
         Stattdessen werden sie als zusätzliche Marker gespeichert, sodass ich Analysen mit und ohne
-        diese Informationen vergleichen kann.
+        diese Informationen vergleichen, und mein Vorgehen bei Bedarf anpassen kann.
       </p>
       <h3>5. LLMs als Hilfswerkzeug in der Datenaufbereitung</h3>
       <p>
-        LLMs können in der Datenaufbereitung unterstützen, etwa beim Vorschlagen von formelhaften
+        LLMs können in der Datenaufbereitung unterstützen, z.B. beim Vorschlagen von formelhaften
         Phrasen oder beim groben Vorsortieren von Abschnitten in „inhaltlich relevant“ vs.
         „formal/administrativ“. Alle Vorschläge werden jedoch manuell geprüft und in einem
         Prompt-Engineering-Journal dokumentiert.
@@ -213,22 +216,6 @@
         <li>Reflektierter Einsatz von LLMs ohne unkritische Übernahme ihrer Vorschläge</li>
       </ul>
     </section>
-    <section id="dokumentation">
-      <h2>Dokumentation & nächste Schritte</h2>
-      <p>
-        Für Assignment 2 werden ergänzende Markdown-Dokumente vorbereitet, die parallel zum Blog
-        gepflegt werden:
-      </p>
-      <ul>
-        <li><code>GLOSSAR.md</code> – zentraler Begriffskatalog (erweitert im Vergleich zu den Tooltipps hier)</li>
-        <li><code>DATA.md</code> – detaillierte Beschreibung des Datensatzes und der Aufbereitungsschritte</li>
-        <li><code>METHOD.md</code> – technische Details zu BERTopic, UMAP, HDBSCAN und LLM-Einsatz</li>
-      </ul>
-      <p>
-        Diese Dokumente entstehen ebenfalls in Zusammenarbeit mit einem LLM, werden aber von mir
-        kontrolliert, kommentiert und bei Unsicherheit in Form offener Fragen formuliert.
-      </p>
-    </section>
     <section id="quellen">
       <h2>Quellen &amp; weiterführende Links</h2>
       <ul>
@@ -239,6 +226,13 @@
           </a>
         </li>
         <li>
+          Aufhebung des §219a  –
+          <a href="https://www.bpb.de/kurz-knapp/hintergrund-aktuell/511299/aufhebung-des-ss219a/?pk_campaign=nl2022-08-31&pk_kwd=511299"
+             target="_blank" rel="noopener">
+            https://www.bpb.de/kurz-knapp/hintergrund-aktuell/511299/aufhebung-des-ss219a/?pk_campaign=nl2022-08-31&pk_kwd=511299
+          </a>
+        </li>
+        <li>
           Übersicht Plenarprotokolle –
           <a href="https://www.bundestag.de/dokumente/protokolle/plenarprotokolle"
              target="_blank" rel="noopener">
@@ -246,19 +240,19 @@
           </a>
         </li>
         <li>
-          BERTopic – Dokumentation und Projektseite –
+          BERTopic, Dokumentation und Projektseite –
           <a href="https://bertopic.com/" target="_blank" rel="noopener">
             https://bertopic.com/
           </a>
         </li>
         <li>
-          UMAP – Dimension Reduction –
+          UMAP, Dimension Reduction –
           <a href="https://umap-learn.readthedocs.io/" target="_blank" rel="noopener">
             https://umap-learn.readthedocs.io/
           </a>
         </li>
         <li>
-          HDBSCAN – Clustering-Bibliothek –
+          HDBSCAN, Clustering-Bibliothek –
           <a href="https://hdbscan.readthedocs.io/" target="_blank" rel="noopener">
             https://hdbscan.readthedocs.io/
           </a>
@@ -268,8 +262,9 @@
   </main>
   <footer class="site-footer">
     <div class="container">
-      <p>Forschungsblog im Rahmen eines Uni-Projekts · ParlaTONE</p>
-      <p><a href="https://github.com/DEIN-USERNAME/DEIN-REPO" target="_blank" rel="noopener">
+      <p>ParlaTone - Forschungsblog im Rahmen eines Projektseminars</p>
+      <p>Autorin: Chiara Citro, Universität Graz</p>
+      <p><a href="https://github.com/Chiarr/AGKI-PM-ParlaTone" target="_blank" rel="noopener">
         GitHub-Repository</a></p>
     </div>
   </footer>
